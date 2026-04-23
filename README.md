@@ -1,4 +1,5 @@
 ## 🌍 MultiLingo Trainer
+<img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/24e233e7-a4a8-45ec-893b-1ad75bda6bc9" />
 
 Learn Multiple Languages. Speak Confidently with AI.
 
