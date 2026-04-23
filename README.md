@@ -63,6 +63,10 @@ Advanced grammar correction
 Offline learning mode
 Mobile app version
 Gamified learning system
+👨‍💻 Author
+
+Name: Sameerah Maqbool
+Project: MultiLingo Trainer
 📄 License
 
 This project is licensed under the MIT License.
