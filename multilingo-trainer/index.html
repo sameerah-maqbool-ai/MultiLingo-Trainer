@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MultiLingo Trainer - AI Language Learning Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-language"></i>
+            <div>
+                <h1>MultiLingo Trainer</h1>
+                <span>AI-Powered Language Learning</span>
+            </div>
+        </div>
+        <button id="themeToggle" class="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="grid-3">
+            <!-- LEFT PANEL: Language Selection -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-globe"></i>
+                    <h3>Language Settings</h3>
+                </div>
+                
+                <div class="lang-selector">
+                    <label><i class="fas fa-microphone"></i> Source Language (From)</label>
+                    <select id="sourceLang">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="ur">🇵🇰 Urdu</option>
+                        <option value="ar" selected>🇸🇦 Arabic</option>
+                        <option value="ja">🇯🇵 Japanese</option>
+                        <option value="zh">🇨🇳 Chinese</option>
+                    </select>
+                </div>
+                
+                <div class="lang-selector">
+                    <label><i class="fas fa-book"></i> Target Language (To)</label>
+                    <select id="targetLang">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="ur">🇵🇰 Urdu</option>
+                        <option value="ar">🇸🇦 Arabic</option>
+                        <option value="ja">🇯🇵 Japanese</option>
+                        <option value="zh" selected>🇨🇳 Chinese</option>
+                    </select>
+                </div>
+
+                <div class="daily-word">
+                    <h4><i class="fas fa-star"></i> Phrase of the Day</h4>
+                    <div class="word-card">
+                        <div class="word">السلام عليكم</div>
+                        <div class="meaning">Peace be upon you</div>
+                    </div>
+                </div>
+
+                <div class="tips">
+                    <h4><i class="fas fa-lightbulb"></i> Learning Tips</h4>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Start with common greetings</li>
+                        <li>Practice pronunciation daily</li>
+                        <li>Use voice input feature</li>
+                        <li>Repeat after the speaker</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CENTER PANEL: Main Learning Area -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <h3>Practice Area</h3>
+                </div>
+                
+                <textarea id="inputText" rows="4" placeholder="Type or speak your sentence here... 
+
+Examples:
+السلام عليكم
+How are you?
+Hello
+Good morning
+شكرا
+ありがとう
+谢谢"></textarea>
+                
+                <div class="action-buttons">
+                    <button id="translateBtn" class="btn primary">
+                        <i class="fas fa-language"></i> Translate
+                    </button>
+                    <button id="voiceBtn" class="btn">
+                        <i class="fas fa-microphone"></i> Speak
+                    </button>
+                    <button id="clearBtn" class="btn">
+                        <i class="fas fa-eraser"></i> Clear
+                    </button>
+                </div>
+
+                <div class="result-area">
+                    <div class="result-card">
+                        <div class="result-label">
+                            <i class="fas fa-file-alt"></i> Original Text
+                            <button id="speakOriginal" class="speak-btn" title="Listen to original">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                        <div class="result-text" id="originalText">—</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-label">
+                            <i class="fas fa-language"></i> Translated Text
+                            <button id="speakTranslated" class="speak-btn" title="Listen to translation">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                        <div class="result-text" id="translatedText">—</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-label">
+                            <i class="fas fa-microphone-alt"></i> Pronunciation Guide
+                        </div>
+                        <div class="result-text" id="pronunciation" style="font-family: monospace;">—</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: Pronunciation Trainer -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h3>Pronunciation Trainer</h3>
+                </div>
+                
+                <div class="pronunciation-card">
+                    <p><strong>🎯 Practice this:</strong></p>
+                    <div id="targetPhrase" style="font-size: 1.2rem; margin: 10px 0; padding: 10px; background: rgba(99,102,241,0.1); border-radius: 12px;">
+                        —
+                    </div>
+                    
+                    <button id="recordBtn" class="btn primary record-btn">
+                        <i class="fas fa-microphone"></i> Practice Pronunciation
+                    </button>
+                    
+                    <div class="score">
+                        <div class="score-label">Your Score</div>
+                        <div class="score-value" id="scoreValue">—</div>
+                    </div>
+                    
+                    <div class="feedback" id="feedbackText">
+                        <i class="fas fa-info-circle"></i> Click the button above, speak the translated phrase, and get instant feedback!
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h4><i class="fas fa-list"></i> Example Sentences</h4>
+                    <div class="example-item" onclick="document.getElementById('inputText').value='السلام عليكم';">
+                        📝 Arabic: السلام عليكم → Chinese: 你好
+                    </div>
+                    <div class="example-item" onclick="document.getElementById('inputText').value='How are you?';">
+                        📝 English: How are you? → Chinese: 你好吗？
+                    </div>
+                    <div class="example-item" onclick="document.getElementById('inputText').value='Thank you';">
+                        📝 English: Thank you → Chinese: 谢谢
+                    </div>
+                    <div class="example-item" onclick="document.getElementById('inputText').value='Good morning';">
+                        📝 English: Good morning → Chinese: 早上好
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; margin-top: 2rem; border-top: 1px solid var(--border);">
+        <p>🌟 MultiLingo Trainer - Learn languages with AI | Speak with confidence</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <i class="fas fa-globe"></i> Arabic | Urdu | English | Japanese | Chinese
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
